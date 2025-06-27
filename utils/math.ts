@@ -32,6 +32,15 @@ export const generatePlotPoints = (
           y = NaN; // Not in domain
         }
         break;
+      case 'rational':
+        const { a: ratA = 1, b: ratB = 0, c: ratC = 1, d: ratD = 0 } = params;
+        const denom = ratC * x + ratD;
+        if (denom !== 0) {
+          y = (ratA * x + ratB) / denom;
+        } else {
+          y = NaN;
+        }
+        break;
       default:
         y = NaN;
     }
