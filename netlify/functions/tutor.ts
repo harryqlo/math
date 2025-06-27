@@ -37,6 +37,12 @@ export const handler = async (event: { httpMethod: string; body: string | null; 
                 body: JSON.stringify({ error: 'Prompt or image is required.' }),
             };
         }
+        if (prompt && prompt.length > 500) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({ error: 'Prompt is too long.' }),
+            };
+        }
 
         const ai = new GoogleGenAI({ apiKey });
 

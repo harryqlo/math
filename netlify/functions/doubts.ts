@@ -23,6 +23,9 @@ export const handler = async (event: { httpMethod: string; body: string | null }
     if (!prompt) {
       return { statusCode: 400, body: JSON.stringify({ error: 'Prompt is required.' }) };
     }
+    if (prompt.length > 500) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'Prompt is too long.' }) };
+    }
 
     const ai = new GoogleGenAI({ apiKey });
     const response: GenerateContentResponse = await ai.models.generateContent({
