@@ -30,10 +30,10 @@ const DoubtsChatView: React.FC = () => {
   const ChatBubble: React.FC<{ message: ChatMessage }> = ({ message }) => {
     const isUser = message.role === 'user';
     return (
-      <div className={`flex items-end gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}>\
-        <div className={`max-w-xl p-3 rounded-lg shadow-sm ${isUser ? 'bg-primary text-white' : 'bg-slate-200 dark:bg-slate-700'}`}>\
-          <LatexDisplay as="div" className="text-left">{message.text}</LatexDisplay>\
-        </div>\
+      <div className={`flex items-end gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}>
+        <div className={`max-w-xl p-3 rounded-lg shadow-sm ${isUser ? 'bg-primary text-white' : 'bg-slate-200 dark:bg-slate-700'}`}>
+          <LatexDisplay as="div" className="text-left">{message.text}</LatexDisplay>
+        </div>
       </div>
     );
   };
