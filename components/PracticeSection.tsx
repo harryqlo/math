@@ -10,9 +10,11 @@ import LatexDisplay from './Latex';
 interface PracticeSectionProps {
   problem: Problem;
   onNextProblem: () => void;
+  index: number;
+  total: number;
 }
 
-const PracticeSection: React.FC<PracticeSectionProps> = ({ problem, onNextProblem }) => {
+const PracticeSection: React.FC<PracticeSectionProps> = ({ problem, onNextProblem, index, total }) => {
   const [userAnswers, setUserAnswers] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState<{ status: 'idle' | 'correct' | 'incorrect'; message: string }>({ status: 'idle', message: '' });
   const [showSolution, setShowSolution] = useState(false);
@@ -84,6 +86,7 @@ const PracticeSection: React.FC<PracticeSectionProps> = ({ problem, onNextProble
     <Card>
       <div className="p-6">
         <h3 className="text-xl font-bold text-primary mb-2">¡A Practicar!</h3>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">Problema {index + 1} de {total}</p>
         <LatexDisplay className="mb-4 text-slate-700 dark:text-slate-300">{problem.enunciado}</LatexDisplay>
         
         <div className="flex flex-col sm:flex-row gap-4 mb-4">
