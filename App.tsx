@@ -20,7 +20,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <Header
         sectionDefs={SECTION_DEFINITIONS}
         activeSection={currentSection}
