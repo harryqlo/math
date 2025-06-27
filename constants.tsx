@@ -290,6 +290,23 @@ export const PROBLEMS_DATA: ProblemSet = {
       },
       inputs: [{ id: 'valor_x', label: '$x = $', type: 'number' }],
       plot: { type: 'logarithmic', params: ['b'], domain: [1, 8], interactiveControls: [ { param: 'b', min: 2, max: 8, step: 0.5 } ] }
+    },
+    {
+      id: 5,
+      enunciado: 'Determina el límite inferior del dominio para la función $f(x) = \\log_3(x - 4)$.',
+      funcParams: { b: 3 },
+      solution: {
+        type: 'dominio_log',
+        pasos: [
+          '\\textbf{1. Analizar el argumento}. El dominio de un logaritmo requiere que su argumento sea mayor que cero.',
+          '\\textbf{2. Plantear la inecuación}. El argumento es $x-4$, por lo que resolvemos $x-4 > 0$.',
+          '\\textbf{3. Despejar}. Sumando 4 a ambos lados obtenemos $x > 4$, que marca el inicio del dominio.',
+          '\\textbf{4. Conclusión}. El dominio es $(4, \\infty)$, así que su límite inferior es 4.'
+        ],
+        correctAnswers: { 'lim_inf': 4 }
+      },
+      inputs: [{ id: 'lim_inf', label: 'Límite inferior:', type: 'number' }],
+      plot: { type: 'logarithmic', params: ['b'], domain: [1, 8], interactiveControls: [ { param: 'b', min: 1.1, max: 5, step: 0.1 } ] }
     }
   ]
 };
