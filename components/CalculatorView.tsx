@@ -76,12 +76,12 @@ const CalculatorView: React.FC = () => {
             <div className="p-6">
                  <h2 className="text-2xl font-bold text-primary mb-4">Calculadora Gráfica</h2>
                  <div className="mb-6">
-                    <label htmlFor="func-type-select" className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">Tipo de Función</label>
+                    <label htmlFor="func-type-select" className="block text-sm font-medium text-gray-700 mb-1">Tipo de Función</label>
                     <select
                         id="func-type-select"
                         value={funcType}
                         onChange={handleFuncTypeChange}
-                        className="block w-full sm:w-1/2 px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md text-sm shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        className="block w-full sm:w-1/2 px-3 py-2 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                     >
                         <option value="cuadratica">Función Cuadrática</option>
                         <option value="exponencial">Función Exponencial</option>
@@ -92,7 +92,7 @@ const CalculatorView: React.FC = () => {
 
                  <div className="flex flex-col lg:flex-row gap-8">
                     <div className="w-full lg:w-80 flex-shrink-0 space-y-4">
-                        <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100">
+                        <h3 className="text-lg font-semibold text-gray-800">
                             <LatexDisplay as="span">{functionDisplayName}</LatexDisplay>
                         </h3>
                          {config.controls.map(control => (
@@ -120,11 +120,11 @@ const CalculatorView: React.FC = () => {
                                 <Tooltip
                                     formatter={(value: number) => typeof value === 'number' ? value.toFixed(2) : value}
                                     labelFormatter={(label: number) => typeof label === 'number' ? `x = ${label.toFixed(2)}`: label}
-                                    contentStyle={{ backgroundColor: 'rgba(30, 41, 59, 0.9)', borderColor: '#0284c7', borderRadius: '0.5rem' }}
-                                    labelStyle={{ color: '#e2e8f0' }}
+                                    contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', borderColor: '#800000', borderRadius: '0.5rem' }}
+                                    labelStyle={{ color: '#000000' }}
                                 />
                                 <Legend />
-                                <Line type="monotone" dataKey="y" name="f(x)" stroke="#0ea5e9" strokeWidth={2.5} dot={false} />
+                                <Line type="monotone" dataKey="y" name="f(x)" stroke="#800000" strokeWidth={2.5} dot={false} />
                             </LineChart>
                         </ResponsiveContainer>
                     </div>

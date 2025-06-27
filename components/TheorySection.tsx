@@ -11,7 +11,7 @@ const TheorySection: React.FC<TheorySectionProps> = ({ theory }) => {
   return (
     <Card className="p-6">
       <h2 className="text-2xl font-bold text-primary mb-4">{theory.title}</h2>
-      <div className="space-y-4 text-slate-600 dark:text-slate-300">
+      <div className="space-y-4 text-gray-700">
         {theory.paragraphs.map((p, index) => (
           <LatexDisplay key={index} as="div">{p}</LatexDisplay>
         ))}
@@ -20,10 +20,10 @@ const TheorySection: React.FC<TheorySectionProps> = ({ theory }) => {
           <dl className="space-y-4 mt-6">
             {theory.properties.map((prop, index) => (
               <div key={index}>
-                <dt className="font-bold text-lg text-slate-800 dark:text-slate-100">
+                <dt className="font-bold text-lg text-gray-800">
                   <LatexDisplay as="span">{prop.term}</LatexDisplay>
                 </dt>
-                <dd className="pl-4 text-slate-600 dark:text-slate-300 border-l-2 border-primary/30 mt-1">
+                <dd className="pl-4 text-gray-700 border-l-2 border-primary/30 mt-1">
                   <LatexDisplay as="span">{prop.description}</LatexDisplay>
                 </dd>
               </div>

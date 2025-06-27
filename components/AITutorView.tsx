@@ -52,7 +52,7 @@ const AITutorView: React.FC = () => {
         const isUser = message.role === 'user';
         return (
             <div className={`flex items-end gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-xl p-3 rounded-lg shadow-sm ${isUser ? 'bg-primary text-white' : 'bg-slate-200 dark:bg-slate-700'}`}>
+                <div className={`max-w-xl p-3 rounded-lg shadow-sm ${isUser ? 'bg-primary text-white' : 'bg-gray-200'}`}>
                     {message.image && <img src={message.image} alt="Adjunto de usuario" className="rounded-md mb-2 max-h-60" />}
                     <LatexDisplay as="div" className="text-left">{message.text}</LatexDisplay>
                 </div>
@@ -62,29 +62,29 @@ const AITutorView: React.FC = () => {
 
     return (
         <Card className="flex flex-col h-[calc(100vh-12rem)]">
-            <div className="p-4 border-b border-slate-200 dark:border-slate-700">
+            <div className="p-4 border-b border-gray-200">
                 <h2 className="text-xl font-bold text-primary">Tutor con IA (Gemini)</h2>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Haz una pregunta o sube la foto de un ejercicio.</p>
+                <p className="text-sm text-gray-600">Haz una pregunta o sube la foto de un ejercicio.</p>
             </div>
-            <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50 dark:bg-slate-800/50">
+            <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50">
                 <ChatBubble message={{ role: 'model', text: "¡Hola! Soy tu tutor de IA. ¿En qué puedo ayudarte hoy con tus estudios de matemáticas?" }} />
                 {messages.map((msg, index) => <ChatBubble key={index} message={msg} />)}
                 {loading && (
                     <div className="flex justify-start">
-                         <div className="p-3 rounded-lg bg-slate-200 dark:bg-slate-700 flex items-center gap-2">
-                            <div className="w-2 h-2 bg-slate-500 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                            <div className="w-2 h-2 bg-slate-500 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                            <div className="w-2 h-2 bg-slate-500 rounded-full animate-bounce"></div>
+                         <div className="p-3 rounded-lg bg-gray-200 flex items-center gap-2">
+                            <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                            <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                            <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
                          </div>
                     </div>
                 )}
                 {error && <div className="text-red-500">{error}</div>}
                 <div ref={chatEndRef} />
             </div>
-            <div className="p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+            <div className="p-4 border-t border-gray-200 bg-white">
                  {imagePreview && (
                     <div className="mb-2 relative w-fit">
-                        <img src={imagePreview} alt="Vista previa" className="max-h-24 rounded-md border border-slate-300" />
+                        <img src={imagePreview} alt="Vista previa" className="max-h-24 rounded-md border border-gray-300" />
                         <button onClick={() => { setImageFile(null); setImagePreview(null); if(fileInputRef.current) fileInputRef.current.value = ''; }} className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shadow-lg">&times;</button>
                     </div>
                  )}
@@ -94,7 +94,7 @@ const AITutorView: React.FC = () => {
                     <select
                         value={topic}
                         onChange={(e) => setTopic(e.target.value)}
-                        className="px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                        className="px-3 py-2 bg-white border border-gray-300 rounded-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                     >
                         {['Álgebra','Geometría','Cálculo','Estadística','Otro'].map(t => (
                             <option key={t} value={t}>{t}</option>
