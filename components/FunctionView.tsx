@@ -24,10 +24,17 @@ const FunctionView: React.FC<FunctionViewProps> = ({ problems, theory, functionI
 
   const currentProblem = problems[currentProblemIndex];
 
+  const totalProblems = problems.length;
+
   return (
     <div className="space-y-8">
       <TheorySection theory={theory} />
-      <PracticeSection problem={currentProblem} onNextProblem={handleNextProblem} />
+      <PracticeSection
+        problem={currentProblem}
+        onNextProblem={handleNextProblem}
+        index={currentProblemIndex}
+        total={totalProblems}
+      />
       <GraphSection problem={currentProblem} />
     </div>
   );

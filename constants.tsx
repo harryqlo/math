@@ -16,6 +16,7 @@ export const THEORY_DATA: TheorySet = {
     paragraphs: [
       'Una función cuadrática es una función polinómica que tiene un término con $\\mathbf{x^2}$. Su "receta" o fórmula general es $\\mathbf{f(x) = ax^2 + bx + c}$. En esta receta, $\\mathbf{a}$, $\\mathbf{b}$ y $\\mathbf{c}$ son números fijos que llamamos "coeficientes". El coeficiente $\\mathbf{a}$ es el que multiplica a $\\mathbf{x^2}$, $\\mathbf{b}$ multiplica a $\\mathbf{x}$, y $\\mathbf{c}$ es el término que está solo. Hay una regla de oro: el coeficiente $\\mathbf{a}$ \\textbf{nunca puede ser cero}. Si lo fuera, el término $\\mathbf{x^2}$ se anularía y nos quedaría una simple función lineal (una línea recta), no una parábola.',
       'Su representación gráfica es una curva suave y simétrica llamada \\textbf{parábola}. Imagina la trayectoria que sigue una pelota al ser lanzada al aire; esa curva es una parábola. Entender cada uno de sus componentes nos permite predecir y dibujar su forma sin necesidad de calcular docenas de puntos.'
+      ,'Como ejemplo concreto, la función $f(x)=(x-2)^2+1$ describe una parábola con vértice en $(2,1)$ y apertura hacia arriba. Cambiar los coeficientes permite desplazar y estirar la curva a nuestro gusto.'
     ],
     properties: [
       { term: 'Dominio y Rango', description: 'El \\textbf{Dominio} se refiere a todos los valores posibles que puede tomar $\\mathbf{x}$. En una función cuadrática, no hay ninguna restricción; podemos elevar al cuadrado cualquier número, multiplicarlo y sumarlo. Por lo tanto, el dominio es siempre el conjunto de todos los números reales, que se escribe como $\\mathbf{(-\\infty, \\infty)}$. El \\textbf{Rango}, sin embargo, son los valores que toma $\\mathbf{f(x)}$ (o $\\mathbf{y}$) y está limitado por el vértice. \\textit{Ejemplo}: Para $f(x) = x^2 - 4x + 5$, el vértice está en $(2, 1)$. Como $a=1$ es positivo, la parábola abre hacia arriba, y su punto más bajo es $y=1$. Por tanto, el rango es $\\mathbf{[1, \\infty)}$.' },
@@ -32,6 +33,7 @@ export const THEORY_DATA: TheorySet = {
     paragraphs: [
       'La función exponencial, con la forma $\\mathbf{f(x) = a \\cdot b^x}$ (donde $\\mathbf{b>0}$ y $\\mathbf{b \\neq 1}$), describe fenómenos cuyo cambio es proporcional a su tamaño actual. Piensa en el "efecto bola de nieve": mientras más grande es, más rápido crece. Modela desde el interés compuesto en una cuenta bancaria hasta el crecimiento de una población de bacterias o la desintegración de un isótopo radiactivo.',
       'Aquí, $\\mathbf{a}$ es el \\textit{valor inicial} (el valor de la función cuando $x=0$, ya que $b^0=1$), y $\\mathbf{b}$ es la \\textit{base} o \\textit{factor de crecimiento/decaimiento}.'
+      ,'Un ejemplo común es el crecimiento de una población que se duplica cada hora. Si partimos de 50 organismos, la función es $f(t)=50\\cdot 2^t$ y describe cuántos habrá después de $t$ horas.'
     ],
     properties: [
       { term: 'Dominio y Rango', description: 'El \\textbf{Dominio} es $\\mathbf{(-\\infty, \\infty)}$ porque podemos elevar la base $\\mathbf{b}$ a cualquier potencia $\\mathbf{x}$, ya sea positiva, negativa o cero. El \\textbf{Rango}, sin embargo, depende del signo de $\\mathbf{a}$. Si $\\mathbf{a > 0}$, la función siempre será positiva (una base positiva elevada a cualquier potencia da un resultado positivo). Por tanto, el rango es $\\mathbf{(0, \\infty)}$. La gráfica vive enteramente por encima del eje X.' },
@@ -45,6 +47,7 @@ export const THEORY_DATA: TheorySet = {
     paragraphs: [
       'La función logarítmica, $\\mathbf{f(x) = \\log_b(x)}$, es la operación \\textbf{inversa} de la función exponencial. Si la exponencial toma una base y un exponente para darte un resultado ($b^y=x$), el logaritmo toma la base y el resultado para darte el exponente ($\\log_b(x)=y$). Responde a la pregunta: \\textit{"¿A qué exponente $\\mathbf{y}$ debo elevar la base $\\mathbf{b}$ para obtener el número $\\mathbf{x}$?"}.',
       'Son indispensables para manejar escalas muy grandes (como en terremotos o pH) y para resolver ecuaciones donde la incógnita está en el exponente.'
+      ,'En la vida diaria aparece, por ejemplo, en la medición del pH, donde $\text{pH}=-\log_{10}( [H^+] )$, usando una escala logarítmica de base 10 para manejar concentraciones diminutas.'
     ],
     properties: [
       { term: 'Dominio', description: 'Esta es la regla más importante: el argumento de un logaritmo (lo que está dentro del paréntesis) \\textbf{debe ser estrictamente positivo}. No puedes calcular el logaritmo de cero o de un número negativo. \\textit{¿Por qué?} Pensemos en $\\log_2(-4)$. Esto pregunta: $2^y = -4$. No existe ningún exponente real $\\mathbf{y}$ que haga que una base positiva como 2 se convierta en un número negativo. Por tanto, para $f(x) = \\log_b(x)$, el \\textbf{Dominio} es $\\mathbf{(0, \\infty)}$.' },
@@ -126,6 +129,21 @@ export const PROBLEMS_DATA: ProblemSet = {
         { id: 'concavidad', label: 'Concavidad (1 para arriba, -1 para abajo):', type: 'number' }
       ],
       plot: { type: 'parabola', params: ['a', 'b', 'c'], domain: [-2, 4], interactiveControls: [ { param: 'a', min: -5, max: 5, step: 0.1 }, { param: 'b', min: -10, max: 10, step: 0.5 }, { param: 'c', min: -10, max: 10, step: 0.5 } ] }
+    },
+    {
+      id: 4,
+      enunciado: 'Determina las raíces de la función $f(x)=x^2 - 2x - 8$.',
+      funcParams: { a: 1, b: -2, c: -8 },
+      solution: {
+        type: 'encontrar_raices',
+        pasos: [
+          'Podemos factorizar el trinomio como $(x-4)(x+2)=0$ para obtener los valores que anulan la función.',
+          'De cada factor se deduce una solución: $x=4$ o $x=-2$.'
+        ],
+        correctAnswers: [-2, 4]
+      },
+      inputs: [ { id: 'r1', label: 'Raíz 1:', type: 'number' }, { id: 'r2', label: 'Raíz 2:', type: 'number' } ],
+      plot: { type: 'parabola', params: ['a', 'b', 'c'], domain: [-5, 6], interactiveControls: [ { param: 'a', min: -3, max: 3, step: 0.1 }, { param: 'b', min: -5, max: 5, step: 0.5 }, { param: 'c', min: -10, max: 10, step: 0.5 } ] }
     }
   ],
   exponencial: [
@@ -167,7 +185,7 @@ export const PROBLEMS_DATA: ProblemSet = {
       inputs: [{ id: 'valor_x', label: '$x = $', type: 'number' }],
       plot: { type: 'exponential', params: ['a', 'b'], domain: [-1, 5], interactiveControls: [ { param: 'a', min: 1, max: 1, step: 1 }, { param: 'b', min: 2, max: 5, step: 1 } ] }
     },
-     {
+    {
       id: 3,
       enunciado: 'Se sabe que una función exponencial de la forma $f(x) = a \\cdot 2^x$ pasa por el punto $(3, 24)$. Encuentra el valor del coeficiente $a$.',
       funcParams: { a: 3, b: 2 },
@@ -185,6 +203,21 @@ export const PROBLEMS_DATA: ProblemSet = {
       },
       inputs: [{ id: 'valor_a', label: '$a = $', type: 'number' }],
       plot: { type: 'exponential', params: ['a', 'b'], domain: [-2, 5], interactiveControls: [ { param: 'a', min: 1, max: 10, step: 0.5 }, { param: 'b', min: 2, max: 2, step: 1 } ] }
+    },
+    {
+      id: 4,
+      enunciado: '¿Para qué valor de $t$ se cumple $250 \\cdot 2^t = 1000$?',
+      funcParams: { a: 250, b: 2 },
+      solution: {
+        type: 'resolver_exponencial_x',
+        pasos: [
+          'Dividimos ambos lados entre 250 y obtenemos $2^t=4$.',
+          'Como $4=2^2$, se concluye que $t=2$.'
+        ],
+        correctAnswers: { 'valor_t': 2 }
+      },
+      inputs: [{ id: 'valor_t', label: '$t = $', type: 'number' }],
+      plot: { type: 'exponential', params: ['a', 'b'], domain: [0, 3], interactiveControls: [ { param: 'a', min: 100, max: 300, step: 10 }, { param: 'b', min: 1.5, max: 3, step: 0.1 } ] }
     }
   ],
   logaritmica: [
@@ -242,6 +275,21 @@ export const PROBLEMS_DATA: ProblemSet = {
       },
       inputs: [{ id: 'valor_b', label: '$b = $', type: 'number' }],
       plot: { type: 'logarithmic', params: ['b'], domain: [0.1, 10], interactiveControls: [ { param: 'b', min: 1.1, max: 10, step: 0.1 } ] }
+    },
+    {
+      id: 4,
+      enunciado: 'Si $\\log_x(125)=3$, determina el valor de la base $x$.',
+      funcParams: { b: 5 },
+      solution: {
+        type: 'resolver_log_base',
+        pasos: [
+          'Convertimos la ecuación a forma exponencial: $x^3 = 125$.',
+          'Como $125 = 5^3$, se concluye que $x = 5$.'
+        ],
+        correctAnswers: { 'valor_x': 5 }
+      },
+      inputs: [{ id: 'valor_x', label: '$x = $', type: 'number' }],
+      plot: { type: 'logarithmic', params: ['b'], domain: [1, 8], interactiveControls: [ { param: 'b', min: 2, max: 8, step: 0.5 } ] }
     }
   ]
 };
