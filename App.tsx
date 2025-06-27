@@ -5,11 +5,12 @@ import FunctionView from './components/FunctionView';
 import CalculatorView from './components/CalculatorView';
 import AITutorView from './components/AITutorView';
 import DoubtsChatView from './components/DoubtsChatView';
+import QuickGuideView from './components/QuickGuideView';
 import { SectionId, FunctionType } from './types';
 import { SECTION_DEFINITIONS, PROBLEMS_DATA, THEORY_DATA } from './constants';
 
 const App: React.FC = () => {
-  const [currentSection, setCurrentSection] = useState<SectionId>('cuadratica');
+  const [currentSection, setCurrentSection] = useState<SectionId>('guia');
 
   const handleNavigate = (sectionId: SectionId) => {
     setCurrentSection(sectionId);
@@ -19,7 +20,10 @@ const App: React.FC = () => {
     .map(def => def.id)
     .filter(
       (secId): secId is FunctionType =>
-        secId !== 'calculadora' && secId !== 'tutor_ia' && secId !== 'dudas_chat'
+        secId !== 'guia' &&
+        secId !== 'calculadora' &&
+        secId !== 'tutor_ia' &&
+        secId !== 'dudas_chat'
     );
 
   const isFunctionSection = (id: SectionId): id is FunctionType => {
@@ -44,8 +48,10 @@ const App: React.FC = () => {
           <CalculatorView />
         ) : currentSection === 'tutor_ia' ? (
           <AITutorView />
-        ) : (
+        ) : currentSection === 'dudas_chat' ? (
           <DoubtsChatView />
+        ) : (
+          <QuickGuideView />
         )}
       </main>
       <footer className="text-center py-4 text-gray-600 text-sm">

@@ -3,6 +3,7 @@ import React from 'react';
 import { SectionDefinition, ProblemSet, TheorySet } from './types';
 
 export const SECTION_DEFINITIONS: SectionDefinition[] = [
+  { name: 'Guía Rápida', id: 'guia' },
   { name: 'Funciones Cuadráticas', id: 'cuadratica' },
   { name: 'Funciones Exponenciales', id: 'exponencial' },
   { name: 'Funciones Logarítmicas', id: 'logaritmica' },

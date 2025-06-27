@@ -1,6 +1,6 @@
 
 export type FunctionType = 'cuadratica' | 'exponencial' | 'logaritmica' | 'racional';
-export type SectionId = FunctionType | 'calculadora' | 'tutor_ia' | 'dudas_chat';
+export type SectionId = 'guia' | FunctionType | 'calculadora' | 'tutor_ia' | 'dudas_chat';
 
 export interface SectionDefinition {
   name: string;
