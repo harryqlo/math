@@ -33,26 +33,28 @@ interface MathInputProps {
 }
 
 const MathInput: React.FC<MathInputProps> = ({ value, onChange, onEnter, placeholder }) => {
-  // The ref is typed as our augmented MathfieldElement to get type safety.
+  const mathfieldDefined = typeof window !== 'undefined' && !!customElements.get('math-field');
+  // The ref is typed as our augmented MathfieldElement to get type safety when mathlive is available.
   const mf = useRef<MathfieldElement>(null);
 
   useEffect(() => {
-    if (mf.current) {
+    if (mathfieldDefined && mf.current) {
       // Set properties imperatively on the element. This is safe now.
       mf.current.virtualKeyboardMode = 'onfocus';
       mf.current.smartFence = true;
     }
-  }, []);
+  }, [mathfieldDefined]);
   
-  // This useEffect syncs the component's `value` prop with the mathfield's internal value.
+  // Sync the component's `value` prop with the underlying element when using mathlive.
   useEffect(() => {
-    if (mf.current && mf.current.value !== value) {
+    if (mathfieldDefined && mf.current && mf.current.value !== value) {
       mf.current.value = value;
     }
-  }, [value]);
+  }, [value, mathfieldDefined]);
 
-  // Handle events from the mathfield element.
+  // Handle events from the input or mathfield element.
   useEffect(() => {
+    if (!mathfieldDefined) return;
     const mathfield = mf.current;
     if (!mathfield) return;
 
@@ -74,16 +76,27 @@ const MathInput: React.FC<MathInputProps> = ({ value, onChange, onEnter, placeho
         mathfield.removeEventListener('input', handleInput);
         mathfield.removeEventListener('keydown', handleKeyDown as EventListener);
     };
-  }, [onChange, onEnter]);
+  }, [onChange, onEnter, mathfieldDefined]);
 
+
+  if (!mathfieldDefined) {
+    return (
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); onEnter?.(); } }}
+        placeholder={placeholder}
+        className="flex-1 p-2 border border-slate-300 rounded-md"
+      />
+    );
+  }
 
   return (
-    // The custom element is used here. The JSX errors should be resolved.
     <math-field
       ref={mf}
       placeholder={placeholder}
-    >
-    </math-field>
+    ></math-field>
   );
 };
 
