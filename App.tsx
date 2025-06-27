@@ -27,7 +27,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
+    <div className="min-h-screen bg-white">
       <Header
         sectionDefs={SECTION_DEFINITIONS}
         activeSection={currentSection}
@@ -48,7 +48,7 @@ const App: React.FC = () => {
           <DoubtsChatView />
         )}
       </main>
-      <footer className="text-center py-4 text-slate-500 dark:text-slate-400 text-sm">
+      <footer className="text-center py-4 text-gray-600 text-sm">
         <p>&copy; {new Date().getFullYear()} Academia Virtual de Funciones. Todos los derechos reservados.</p>
       </footer>
     </div>

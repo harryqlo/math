@@ -54,14 +54,14 @@ const GraphSection: React.FC<GraphSectionProps> = ({ problem }) => {
                 formatter={(value: number) => typeof value === 'number' ? value.toFixed(2) : value}
                 labelFormatter={(label: number) => typeof label === 'number' ? `x = ${label.toFixed(2)}`: label}
                 contentStyle={{
-                  backgroundColor: 'rgba(30, 41, 59, 0.9)',
-                  borderColor: '#0284c7',
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  borderColor: '#800000',
                   borderRadius: '0.5rem'
                 }}
-                labelStyle={{ color: '#e2e8f0' }}
+                labelStyle={{ color: '#000000' }}
               />
               <Legend />
-              <Line type="monotone" dataKey="y" name="f(x)" stroke="#0ea5e9" strokeWidth={2.5} dot={false} />
+              <Line type="monotone" dataKey="y" name="f(x)" stroke="#800000" strokeWidth={2.5} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>

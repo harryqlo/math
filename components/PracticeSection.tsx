@@ -77,8 +77,8 @@ const PracticeSection: React.FC<PracticeSectionProps> = ({ problem, onNextProble
   };
 
   const feedbackClasses = {
-    correct: 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300',
-    incorrect: 'bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300',
+    correct: 'bg-emerald-100 text-emerald-700',
+    incorrect: 'bg-red-100 text-red-700',
     idle: 'hidden'
   };
 
@@ -86,13 +86,13 @@ const PracticeSection: React.FC<PracticeSectionProps> = ({ problem, onNextProble
     <Card>
       <div className="p-6">
         <h3 className="text-xl font-bold text-primary mb-2">¡A Practicar!</h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">Problema {index + 1} de {total}</p>
-        <LatexDisplay className="mb-4 text-slate-700 dark:text-slate-300">{problem.enunciado}</LatexDisplay>
+        <p className="text-sm text-gray-600 mb-4">Problema {index + 1} de {total}</p>
+        <LatexDisplay className="mb-4 text-gray-800">{problem.enunciado}</LatexDisplay>
         
         <div className="flex flex-col sm:flex-row gap-4 mb-4">
           {problem.inputs.map((input: UserInputDef) => (
             <div key={input.id} className="flex-1">
-              <label htmlFor={input.id} className="block text-sm font-medium text-slate-600 dark:text-slate-400">
+              <label htmlFor={input.id} className="block text-sm font-medium text-gray-700">
                 <LatexDisplay>{input.label}</LatexDisplay>
               </label>
               <input
@@ -100,9 +100,9 @@ const PracticeSection: React.FC<PracticeSectionProps> = ({ problem, onNextProble
                 id={input.id}
                 value={userAnswers[input.id] || ''}
                 onChange={(e) => handleInputChange(input.id, e.target.value)}
-                className={`mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-700 border rounded-md text-sm shadow-sm placeholder-slate-400
+                className={`mt-1 block w-full px-3 py-2 bg-white border rounded-md text-sm shadow-sm placeholder-gray-400
                             focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
-                            ${errorInputs.includes(input.id) ? 'border-danger' : 'border-slate-300 dark:border-slate-600'}`}
+                            ${errorInputs.includes(input.id) ? 'border-danger' : 'border-gray-300'}`}
               />
             </div>
           ))}
@@ -122,9 +122,9 @@ const PracticeSection: React.FC<PracticeSectionProps> = ({ problem, onNextProble
       </div>
       
       {showSolution && (
-        <div className="border-t border-slate-200 dark:border-slate-700 p-6 bg-slate-50 dark:bg-slate-800/50">
+        <div className="border-t border-gray-200 p-6 bg-gray-50">
             <h4 className="font-bold text-lg text-primary mb-2">Pasos de la Solución</h4>
-            <div className="space-y-2 text-slate-600 dark:text-slate-300">
+            <div className="space-y-2 text-gray-700">
               {problem.solution.pasos.map((paso, index) => (
                 <LatexDisplay key={index}>{paso}</LatexDisplay>
               ))}

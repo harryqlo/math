@@ -87,7 +87,7 @@ const MathInput: React.FC<MathInputProps> = ({ value, onChange, onEnter, placeho
         onChange={(e) => onChange(e.target.value)}
         onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); onEnter?.(); } }}
         placeholder={placeholder}
-        className="flex-1 p-2 border border-slate-300 rounded-md"
+        className="flex-1 p-2 border border-gray-300 rounded-md"
       />
     );
   }

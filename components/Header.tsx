@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ sectionDefs, activeSection, onNavigate 
   };
 
   return (
-    <header className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md sticky top-0 z-50">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -35,8 +35,8 @@ const Header: React.FC<HeaderProps> = ({ sectionDefs, activeSection, onNavigate 
                     onClick={() => onNavigate(def.id)}
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                       isActive
-                        ? 'bg-primary/10 text-primary dark:bg-primary/20'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                        ? 'bg-primary/10 text-primary'
+                        : 'text-gray-700 hover:bg-gray-100'
                     }`}
                   >
                     {def.name}
@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ sectionDefs, activeSection, onNavigate 
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary-light hover:bg-slate-200 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-primary hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Abrir menú principal</span>
@@ -71,8 +71,8 @@ const Header: React.FC<HeaderProps> = ({ sectionDefs, activeSection, onNavigate 
                   onClick={() => handleMobileNavigate(def.id)}
                   className={`w-full text-left block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     isActive
-                      ? 'bg-primary/10 text-primary dark:bg-primary/20'
-                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      ? 'bg-primary/10 text-primary'
+                      : 'text-gray-700 hover:bg-gray-100'
                   }`}
                 >
                   {def.name}
