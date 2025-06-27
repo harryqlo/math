@@ -1,5 +1,5 @@
 
-export type FunctionType = 'cuadratica' | 'exponencial' | 'logaritmica';
+export type FunctionType = 'cuadratica' | 'exponencial' | 'logaritmica' | 'racional';
 export type SectionId = FunctionType | 'calculadora' | 'tutor_ia' | 'dudas_chat';
 
 export interface SectionDefinition {
@@ -15,7 +15,7 @@ export interface InteractiveControl {
 }
 
 export interface PlotConfig {
-  type: 'parabola' | 'exponential' | 'logarithmic';
+  type: 'parabola' | 'exponential' | 'logarithmic' | 'rational';
   params: string[];
   domain: [number, number];
   interactiveControls?: InteractiveControl[];

@@ -15,8 +15,15 @@ const App: React.FC = () => {
     setCurrentSection(sectionId);
   };
 
+  const functionSectionIds: FunctionType[] = SECTION_DEFINITIONS
+    .map(def => def.id)
+    .filter(
+      (secId): secId is FunctionType =>
+        secId !== 'calculadora' && secId !== 'tutor_ia' && secId !== 'dudas_chat'
+    );
+
   const isFunctionSection = (id: SectionId): id is FunctionType => {
-    return ['cuadratica', 'exponencial', 'logaritmica'].includes(id);
+    return functionSectionIds.includes(id as FunctionType);
   };
 
   return (

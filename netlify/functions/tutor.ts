@@ -18,9 +18,9 @@ export const handler = async (event: { httpMethod: string; body: string | null; 
         };
     }
 
-    const API_KEY = process.env.API_KEY;
+    const apiKey = process.env.GOOGLE_GEMINI_API_KEY;
 
-    if (!API_KEY) {
+    if (!apiKey) {
         return {
             statusCode: 500,
             body: JSON.stringify({ error: 'API key not configured on server.' }),
@@ -38,7 +38,7 @@ export const handler = async (event: { httpMethod: string; body: string | null; 
             };
         }
 
-        const ai = new GoogleGenAI({ apiKey: API_KEY });
+        const ai = new GoogleGenAI({ apiKey });
 
         const parts: any[] = [];
         if (image) {
