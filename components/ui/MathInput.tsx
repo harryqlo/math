@@ -30,10 +30,16 @@ interface MathInputProps {
   onChange: (value: string) => void;
   onEnter?: () => void;
   placeholder?: string;
+  /**
+   * When `true` (default) use the `math-field` element with the
+   * virtual math keyboard enabled. Set to `false` to render a
+   * plain text input instead.
+   */
+  useMathField?: boolean;
 }
 
-const MathInput: React.FC<MathInputProps> = ({ value, onChange, onEnter, placeholder }) => {
-  const mathfieldDefined = typeof window !== 'undefined' && !!customElements.get('math-field');
+const MathInput: React.FC<MathInputProps> = ({ value, onChange, onEnter, placeholder, useMathField = true }) => {
+  const mathfieldDefined = useMathField && typeof window !== 'undefined' && !!customElements.get('math-field');
   // The ref is typed as our augmented MathfieldElement to get type safety when mathlive is available.
   const mf = useRef<MathfieldElement>(null);
 

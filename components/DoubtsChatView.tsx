@@ -61,7 +61,13 @@ const DoubtsChatView: React.FC = () => {
       </div>
       <div className="p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
         <form onSubmit={handleSubmit} className="flex items-center gap-2">
-          <MathInput value={input} onChange={setInput} onEnter={submit} placeholder="Escribe tu duda..." />
+          <MathInput
+            value={input}
+            onChange={setInput}
+            onEnter={submit}
+            placeholder="Escribe tu duda..."
+            useMathField={false}
+          />
           <Button type="submit" disabled={loading || !input.trim()} icon={ICONS.send} aria-label="Enviar" />
         </form>
       </div>
