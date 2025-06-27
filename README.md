@@ -16,3 +16,10 @@ This contains everything you need to run your app locally.
 ## Build for production
 
 Run `npm run build` to generate the static files in the `dist` folder. Deploy this directory along with the `netlify/functions` folder to Netlify.
+
+## Características principales
+
+- Teoría explicada paso a paso en español.
+- Problemas interactivos con gráficas y controles deslizantes.
+- Chat de dudas y tutor asistido por IA (Gemini).
+- Código escrito en React + TypeScript usando Vite y Tailwind.
