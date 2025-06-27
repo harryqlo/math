@@ -32,7 +32,10 @@ export const handler = async (event: { httpMethod: string; body: string | null }
       model: 'gemini-2.5-flash-preview-04-17',
       contents: [{ text: prompt }],
       config: {
-        systemInstruction: 'Eres un asistente conversacional amistoso. Responde en español de forma natural y ayuda a aclarar dudas del usuario.',
+        systemInstruction:
+          'Eres un asistente conversacional especializado en matemáticas. ' +
+          'Respondes exclusivamente preguntas y dudas sobre conceptos, ejercicios y temas matemáticos. ' +
+          'Si el usuario plantea algo fuera del ámbito matemático, indícale amablemente que solo manejas dudas de matemáticas y pide que reformule su consulta.',
       },
     });
 
