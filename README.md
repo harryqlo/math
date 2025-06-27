@@ -30,17 +30,21 @@ El sitio está dividido en secciones o "pestañas" que puedes abrir desde el
 menú principal. A continuación se describen de forma sencilla y con ejemplos
 cotidianos:
 
-1. **Funciones Cuadráticas**: aquí se estudian las parábolas. Piensa en la
-   trayectoria que sigue una pelota al lanzarla; esa curva es un ejemplo de
-   función cuadrática.
-2. **Funciones Exponenciales**: explican fenómenos que crecen o disminuyen muy
-   rápido, como cuando tus ahorros se duplican cada cierto tiempo o la población
-   de bacterias se multiplica.
-3. **Funciones Logarítmicas**: son la herramienta inversa de las exponenciales.
-   Se usan para medir escalas enormes, por ejemplo el pH de una sustancia.
-4. **Funciones Racionales**: tratan fracciones de polinomios, parecidas a la
-   división de una pizza en porciones. A veces presentan valores donde la
-   fracción no existe, lo que produce asíntotas en la gráfica.
+1. **Funciones Cuadráticas**: se ven las famosas parábolas. Piensa en el arco
+   que describe una pelota al lanzarla o la forma de un puente. Incluye
+   ejercicios guiados para hallar vértices, interceptos y raíces paso a paso.
+2. **Funciones Exponenciales**: explican crecimientos y decaimientos rápidos,
+   como tus ahorros acumulados o una colonia de bacterias. Encontrarás demos y
+   ejercicios interactivos para calcular en cuánto tiempo se duplica una
+   cantidad.
+3. **Funciones Logarítmicas**: son la herramienta inversa de las
+   exponenciales. Se usan en la vida diaria para medir, por ejemplo, el pH o la
+   intensidad de los sonidos. Practica resolviendo logaritmos sencillos con
+   ejemplos cotidianos.
+4. **Funciones Racionales**: abarcan divisiones entre polinomios, parecidas a
+   repartir una pizza. Verás por qué a veces aparecen "huecos" o asíntotas en
+   la gráfica y podrás practicar simplificando y graficando tus propios
+   ejemplos.
 5. **Calculadora Gráfica**: permite trazar tus propias funciones y ver los
    cambios de forma interactiva moviendo deslizadores.
 6. **Tutor con IA** y **Chat de Dudas**: dos espacios para preguntar lo que sea
