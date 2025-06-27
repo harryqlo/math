@@ -2,6 +2,7 @@ import { GoogleGenAI, GenerateContentResponse } from '@google/genai';
 
 interface TutorRequestBody {
     prompt: string;
+    topic: string;
     image?: {
         base64: string;
         mimeType: string;
@@ -28,7 +29,7 @@ export const handler = async (event: { httpMethod: string; body: string | null; 
 
     try {
         const body: TutorRequestBody = JSON.parse(event.body || '{}');
-        const { prompt, image } = body;
+        const { prompt, topic, image } = body;
 
         if (!prompt && !image) {
             return {
@@ -56,7 +57,7 @@ export const handler = async (event: { httpMethod: string; body: string | null; 
             model: 'gemini-2.5-flash-preview-04-17',
             contents: { parts },
             config: {
-                systemInstruction: "Eres un amigable y experto tutor de matemáticas. Tu objetivo es ayudar a los estudiantes a entender conceptos, no solo darles la respuesta. Explica los pasos de forma clara y pedagógica. Utiliza LaTeX para las fórmulas, por ejemplo, para escribir $x^2 + 5$, usa `$x^2 + 5$."
+                systemInstruction: `Eres un amigable y experto tutor de matemáticas especializado en ${topic}. Tu objetivo es ayudar a los estudiantes a entender conceptos, no solo darles la respuesta. Explica los pasos de forma clara y pedagógica. Utiliza LaTeX para las fórmulas, por ejemplo, para escribir $x^2 + 5$, usa \`$x^2 + 5$\`.`,
             }
         });
         

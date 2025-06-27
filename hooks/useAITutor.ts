@@ -7,20 +7,20 @@ export const useAITutor = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const sendMessage = async (prompt: string, imageFile?: File) => {
+  const sendMessage = async (prompt: string, topic: string, imageFile?: File) => {
     if (!prompt && !imageFile) return;
 
     setLoading(true);
     setError(null);
 
-    const userMessage: ChatMessage = { role: 'user', text: prompt };
+    const userMessage: ChatMessage = { role: 'user', text: `${topic}: ${prompt}` };
     if (imageFile) {
       userMessage.image = URL.createObjectURL(imageFile);
     }
     setMessages(prev => [...prev, userMessage]);
 
     try {
-      const body: { prompt: string; image?: { base64: string; mimeType: string; } } = { prompt };
+      const body: { prompt: string; topic: string; image?: { base64: string; mimeType: string; } } = { prompt, topic };
 
       if (imageFile) {
         const base64Image = await fileToBase64(imageFile);
