@@ -4,6 +4,7 @@ import Header from './components/Header';
 import FunctionView from './components/FunctionView';
 import CalculatorView from './components/CalculatorView';
 import AITutorView from './components/AITutorView';
+import DoubtsChatView from './components/DoubtsChatView';
 import { SectionId, FunctionType } from './types';
 import { SECTION_DEFINITIONS, PROBLEMS_DATA, THEORY_DATA } from './constants';
 
@@ -34,8 +35,10 @@ const App: React.FC = () => {
           />
         ) : currentSection === 'calculadora' ? (
           <CalculatorView />
-        ) : (
+        ) : currentSection === 'tutor_ia' ? (
           <AITutorView />
+        ) : (
+          <DoubtsChatView />
         )}
       </main>
       <footer className="text-center py-4 text-slate-500 dark:text-slate-400 text-sm">

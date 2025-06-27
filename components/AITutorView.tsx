@@ -10,6 +10,7 @@ import MathInput from './ui/MathInput';
 const AITutorView: React.FC = () => {
     const { messages, loading, error, sendMessage } = useAITutor();
     const [input, setInput] = useState('');
+    const [topic, setTopic] = useState('Álgebra');
     const [imageFile, setImageFile] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -21,7 +22,7 @@ const AITutorView: React.FC = () => {
     
     const submitMessage = () => {
         if (loading || (!input.trim() && !imageFile)) return;
-        sendMessage(input, imageFile ?? undefined);
+        sendMessage(input, topic, imageFile ?? undefined);
         setInput('');
         setImageFile(null);
         setImagePreview(null);
@@ -87,9 +88,18 @@ const AITutorView: React.FC = () => {
                         <button onClick={() => { setImageFile(null); setImagePreview(null); if(fileInputRef.current) fileInputRef.current.value = ''; }} className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shadow-lg">&times;</button>
                     </div>
                  )}
-                <form onSubmit={handleFormSubmit} className="flex items-center gap-2">
+                <form onSubmit={handleFormSubmit} className="flex flex-wrap items-center gap-2">
                     <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="image/*" className="hidden" />
                     <Button type="button" variant="secondary" onClick={triggerFileSelect} icon={ICONS.upload} aria-label="Subir imagen" />
+                    <select
+                        value={topic}
+                        onChange={(e) => setTopic(e.target.value)}
+                        className="px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                    >
+                        {['Álgebra','Geometría','Cálculo','Estadística','Otro'].map(t => (
+                            <option key={t} value={t}>{t}</option>
+                        ))}
+                    </select>
                     <MathInput
                         value={input}
                         onChange={setInput}

@@ -8,6 +8,7 @@ export const SECTION_DEFINITIONS: SectionDefinition[] = [
   { name: 'Funciones Logarítmicas', id: 'logaritmica' },
   { name: 'Calculadora Gráfica', id: 'calculadora' },
   { name: 'Tutor con IA', id: 'tutor_ia' },
+  { name: 'Chat de Dudas', id: 'dudas_chat' },
 ];
 
 export const THEORY_DATA: TheorySet = {
