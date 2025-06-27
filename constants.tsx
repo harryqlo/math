@@ -6,6 +6,7 @@ export const SECTION_DEFINITIONS: SectionDefinition[] = [
   { name: 'Funciones Cuadráticas', id: 'cuadratica' },
   { name: 'Funciones Exponenciales', id: 'exponencial' },
   { name: 'Funciones Logarítmicas', id: 'logaritmica' },
+  { name: 'Funciones Racionales', id: 'racional' },
   { name: 'Calculadora Gráfica', id: 'calculadora' },
   { name: 'Tutor con IA', id: 'tutor_ia' },
   { name: 'Chat de Dudas', id: 'dudas_chat' },
@@ -57,6 +58,17 @@ export const THEORY_DATA: TheorySet = {
       { term: 'Punto Clave de Paso', description: 'Toda función exponencial $b^y$ cumple que si $y=0$, entonces $b^0 = 1$. Llevando esto a su inversa, el logaritmo, significa que $\\log_b(1) = 0$ para cualquier base $\\mathbf{b}$. Esto nos da un punto de anclaje universal: toda función logarítmica básica pasa por el punto $\\mathbf{(1, 0)}$.' }
     ],
     videoUrl: 'https://www.youtube.com/embed/C0vUje9Uduc'
+  },
+  racional: {
+    title: 'Introducción a las Funciones Racionales',
+    paragraphs: [
+      'Una función racional es el cociente de dos polinomios. Su forma general puede escribirse como $f(x)=\\frac{ax+b}{cx+d}$.',
+      'Ejemplos típicos son $f(x)=\\tfrac{x+5}{x+4}$, $g(x)=\\tfrac{x+1}{x-3}$ y $h(x)=\\tfrac{x}{x-10}$.',
+      'Estas funciones presentan puntos donde el denominador se anula; allí la función no está definida y suele mostrarse una asíntota vertical.'
+    ],
+    properties: [
+      { term: 'Dominio', description: 'El dominio incluye todos los valores reales excepto aquellos que hacen cero al denominador.' }
+    ]
   }
 };
 
@@ -308,6 +320,59 @@ export const PROBLEMS_DATA: ProblemSet = {
       },
       inputs: [{ id: 'lim_inf', label: 'Límite inferior:', type: 'number' }],
       plot: { type: 'logarithmic', params: ['b'], domain: [1, 8], interactiveControls: [ { param: 'b', min: 1.1, max: 5, step: 0.1 } ] }
+    }
+  ],
+  racional: [
+    {
+      id: 1,
+      enunciado: 'Para la función $f(x)=\\tfrac{x+5}{x+4}$, calcula $f(2)$.',
+      funcParams: { a: 1, b: 5, c: 1, d: 4 },
+      solution: {
+        type: 'evaluar_funcion_racional',
+        pasos: [
+          'Sustituimos $x=2$ en la expresión: $f(2)=\\tfrac{2+5}{2+4}$.',
+          'Calculamos numerador y denominador: $7$ y $6$.',
+          'Dividimos: $\\tfrac{7}{6} \approx 1.17$.'
+        ],
+        correctAnswers: { valor_y: 7/6 }
+      },
+      inputs: [{ id: 'valor_y', label: '$f(2) = $', type: 'number' }],
+      plot: {
+        type: 'rational',
+        params: ['a','b','c','d'],
+        domain: [-6,6],
+        interactiveControls: [
+          { param: 'a', min: -5, max: 5, step: 0.5 },
+          { param: 'b', min: -10, max: 10, step: 0.5 },
+          { param: 'c', min: -5, max: 5, step: 0.5 },
+          { param: 'd', min: -10, max: 10, step: 0.5 }
+        ]
+      }
+    },
+    {
+      id: 2,
+      enunciado: '¿Qué valor de $x$ hace que $g(x)=\\tfrac{x+1}{x-3}$ no esté definida?',
+      funcParams: { a: 1, b: 1, c: 1, d: -3 },
+      solution: {
+        type: 'valor_excluido',
+        pasos: [
+          'Una función racional no está definida cuando su denominador es cero.',
+          'Resolvemos $x-3=0$ y obtenemos $x=3$.'
+        ],
+        correctAnswers: { x: 3 }
+      },
+      inputs: [{ id: 'x', label: '$x = $', type: 'number' }],
+      plot: {
+        type: 'rational',
+        params: ['a','b','c','d'],
+        domain: [-6,6],
+        interactiveControls: [
+          { param: 'a', min: -5, max: 5, step: 0.5 },
+          { param: 'b', min: -10, max: 10, step: 0.5 },
+          { param: 'c', min: -5, max: 5, step: 0.5 },
+          { param: 'd', min: -10, max: 10, step: 0.5 }
+        ]
+      }
     }
   ]
 };

@@ -31,12 +31,23 @@ const calculatorConfigs: Record<FunctionType, { params: Record<string, number>, 
         ],
         plotConfig: { type: 'logarithmic', params: ['b'], domain: [0.1, 10] }
     },
+    racional: {
+        params: { a: 1, b: 0, c: 1, d: 0 },
+        controls: [
+            { param: 'a', min: -5, max: 5, step: 0.1 },
+            { param: 'b', min: -10, max: 10, step: 0.5 },
+            { param: 'c', min: -5, max: 5, step: 0.1 },
+            { param: 'd', min: -10, max: 10, step: 0.5 },
+        ],
+        plotConfig: { type: 'rational', params: ['a','b','c','d'], domain: [-10, 10] }
+    },
 };
 
 const functionNames: Record<FunctionType, string> = {
     cuadratica: 'Cuadrática: $f(x) = ax^2 + bx + c$',
     exponencial: 'Exponencial: $f(x) = a \\cdot b^x$',
-    logaritmica: 'Logarítmica: $f(x) = \\log_b(x)$'
+    logaritmica: 'Logarítmica: $f(x) = \\log_b(x)$',
+    racional: 'Racional: $f(x)=\\frac{ax+b}{cx+d}$'
 };
 
 const CalculatorView: React.FC = () => {
@@ -75,6 +86,7 @@ const CalculatorView: React.FC = () => {
                         <option value="cuadratica">Función Cuadrática</option>
                         <option value="exponencial">Función Exponencial</option>
                         <option value="logaritmica">Función Logarítmica</option>
+                        <option value="racional">Función Racional</option>
                     </select>
                  </div>
 
