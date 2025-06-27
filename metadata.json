@@ -1,0 +1,8 @@
+{
+  "name": "Academia Virtual de Funciones Matemáticas",
+  "description": "Una aplicación web interactiva y educativa que permite a los usuarios aprender, practicar y visualizar funciones cuadráticas, exponenciales y logarítmicas, ahora con un tutor de IA y calculadora gráfica.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "prompt": ""
+}

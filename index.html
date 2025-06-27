@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academia Virtual de Funciones Matemáticas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0KOVEMVIARBEEDYwIWN5KksMLCDNifagMH8xGX3oGcpMPIodjTwFR" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/mathlive/dist/mathlive.css" />
+    <style>
+      math-field {
+        display: block;
+        flex: 1;
+        padding: 0.5rem 0.75rem;
+        background-color: white;
+        border-width: 1px;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        border-color: #cbd5e1; /* slate-300 */
+        min-height: 42px; /* Match button height */
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      math-field:focus-within {
+        outline: none;
+        border-color: #0284c7; /* primary */
+        box-shadow: 0 0 0 1px #0284c7;
+      }
+      .dark math-field {
+        background-color: #334155; /* slate-700 */
+        border-color: #475569; /* slate-600 */
+        color: #e2e8f0; /* slate-200 */
+      }
+      math-field::part(placeholder) {
+        color: #94a3b8; /* slate-400 */
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#0284c7', // sky-600
+                light: '#03a9f4',   // light-blue-500
+                dark: '#01579b',   // light-blue-800
+              },
+              secondary: '#475569', // slate-600
+              accent: '#10b981', // emerald-500
+              danger: '#ef4444', // red-500
+            },
+          }
+        }
+      }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-latex-next": "https://esm.sh/react-latex-next@3.0.0?external=react",
+    "recharts": "https://esm.sh/recharts@2.12.7?external=react,react-dom",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "react/": "https://esm.sh/react@18.2.0/",
+    "mathlive": "https://esm.sh/mathlive@0.98.5",
+    "@google/genai": "https://esm.sh/@google/genai@^1.7.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
