@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aprende funciones matemáticas con teoría paso a paso, ejercicios interactivos y un tutor con IA." />
+    <meta property="og:title" content="Academia Virtual de Funciones Matemáticas" />
+    <meta property="og:description" content="Web educativa con ejemplos detallados, gráficas y ayuda personalizada." />
     <title>Academia Virtual de Funciones Matemáticas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0KOVEMVIARBEEDYwIWN5KksMLCDNifagMH8xGX3oGcpMPIodjTwFR" crossorigin="anonymous">
@@ -74,7 +77,8 @@
 <link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-white text-black font-sans">
-    <div id="root"></div>
+    <a href="#root" class="sr-only focus:not-sr-only">Saltar al contenido</a>
+    <div id="root" role="main" tabindex="-1" aria-label="Contenido principal"></div>
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
